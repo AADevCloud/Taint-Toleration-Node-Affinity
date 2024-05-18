@@ -16,7 +16,9 @@ You add a taint to a node using kubectl taint. For example
 -There are 3 effect
 
 -NoSchedule : No new Pods will be scheduled on the tainted node unless they have a matching toleration. Pods currently running on the node are not evicted.
+
 -preferNoSchedule : soft version of NoSchedule. The control plane will try to avoid placing a Pod that does not tolerate the taint on the node, but it is not guaranteed.
+
 -NoExecute: Pods that do not tolerate the taint are evicted immediately
 
 -Taint the Node for Frontend Environment 
