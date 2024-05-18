@@ -93,15 +93,15 @@ kubectl label node prod-worker app=user
 ```
 - Step 4: Add the node Affinity in configuration file
 
-Note:
-   there are 3 different types of node affinity effects
-    - requiredDuringSchedulingIgnoredDuringExecution
-    - preferredDuringSchedulingIgnoredDuringExecution
-    - requiredDuringSchedulingrequiredDuringExecution
-   there are 3 different types of operator in node affinity 
-    - NotIn
-    - In
-    - Exists
+Note:there are 3 different types of node affinity effects
+- requiredDuringSchedulingIgnoredDuringExecution
+- preferredDuringSchedulingIgnoredDuringExecution
+- requiredDuringSchedulingrequiredDuringExecution
+there are 3 different types of operator in node affinity 
+- NotIn
+- In
+- Exists
+
 ``` bash
  apiVersion: v1
 kind: Pod
