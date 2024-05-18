@@ -87,6 +87,10 @@ kubectl apply -f backend-pod.yaml
 ``` bash
 kubectl label node prod-worker app=user
 ```
+- add on more lable for test node affinity
+``` bash
+kubectl label node prod-worker node-app=web
+```
 - To check the all labels on a specfic node
 ``` bash
  kubectl describe node prod-worker | grep -i Labels -5
@@ -104,7 +108,6 @@ There are 3 different types of operator in node affinity
 - Exists
 
 ``` bash
-apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-nginx-deployment
@@ -136,4 +139,9 @@ spec:
                 operator: In
                 values:
                 - user
+              - key: node-app
+                operator: In
+                values:
+                - web
 ```
+- Deploy the Application 
