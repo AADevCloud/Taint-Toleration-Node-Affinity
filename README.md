@@ -97,7 +97,8 @@ Note:there are 3 different types of node affinity effects
 - requiredDuringSchedulingIgnoredDuringExecution
 - preferredDuringSchedulingIgnoredDuringExecution
 - requiredDuringSchedulingrequiredDuringExecution
-there are 3 different types of operator in node affinity 
+
+There are 3 different types of operator in node affinity 
 - NotIn
 - In
 - Exists
