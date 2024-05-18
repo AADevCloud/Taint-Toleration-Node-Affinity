@@ -104,7 +104,7 @@ There are 3 different types of operator in node affinity
 - Exists
 
 ``` bash
- apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: frontend-nginx-pod
