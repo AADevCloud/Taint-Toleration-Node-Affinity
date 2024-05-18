@@ -104,27 +104,36 @@ There are 3 different types of operator in node affinity
 - Exists
 
 ``` bash
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: frontend-nginx-pod
+  name: frontend-nginx-deployment
   labels:
     env: test
 spec:
-  containers:
-  - name: nginx-container
-    image: nginx
-  tolerations:
-  - key: "app"
-    value: "frontend"
-    effect: "NoSchedule"
-affinity:
-  nodeAffinity:
-    requiredDuringSchedulingRequiredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: app
-          operator: In
-          values:
-          - user
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+      tolerations:
+      - key: "app"
+        value: "frontend"
+        effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - user
 ```
